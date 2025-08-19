@@ -1,5 +1,6 @@
 package net.drey.tutorialmod;
 
+import net.drey.tutorialmod.block.ModBlocks;
 import net.fabricmc.api.ModInitializer;
 
 import net.drey.tutorialmod.item.ModItems;
@@ -14,5 +15,6 @@ public class TutorialMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.registerModItems();
+        ModBlocks.registerModBlocks();
 	}
 }

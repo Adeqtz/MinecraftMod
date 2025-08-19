@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "net.kaupenjoe.tutorialmod.mixin",
+	"package": "net.drey.tutorialmod.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"ExampleMixin"

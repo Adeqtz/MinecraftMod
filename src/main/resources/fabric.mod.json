@@ -8,21 +8,21 @@
 		"Drey!"
 	],
 	"contact": {
-		"homepage": "https://kaupenjoe.net",
-		"sources": "https://github.com/Tutorials-By-Kaupenjoe/Fabric-Tutorial-1.21.X"
+		"homepage": "",
+		"sources": ""
 	},
 	"license": "MIT",
 	"icon": "assets/tutorialmod/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.kaupenjoe.tutorialmod.TutorialMod"
+			"net.drey.tutorialmod.TutorialMod"
 		],
 		"fabric-datagen": [
-			"net.kaupenjoe.tutorialmod.TutorialModDataGenerator"
+			"net.drey.tutorialmod.TutorialModDataGenerator"
 		],
 		"client": [
-			"net.kaupenjoe.tutorialmod.TutorialModClient"
+			"net.drey.tutorialmod.TutorialModClient"
 		]
 	},
 	"mixins": [
