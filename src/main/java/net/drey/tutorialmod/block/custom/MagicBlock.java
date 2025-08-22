@@ -6,8 +6,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -24,13 +26,29 @@ public class MagicBlock  extends Block {
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player,
                                  BlockHitResult hit) {
         world.playSound(player, pos, SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME, SoundCategory.BLOCKS, 1F, 1F);
+
         return ActionResult.SUCCESS;
+    }
+
+    public void onProjectileHit(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit, ProjectileEntity projectile, Entity entity) {
+        if(projectile instanceof ProjectileEntity arrow) {
+
+        }
     }
 
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         if(entity instanceof ItemEntity itemEntity) {
             if(itemEntity.getStack().getItem() == ModItems.RAW_PINK_GARNET) {
+                for (int i = 0; i < 10; i++) {
+                    world.addParticle(
+                            ParticleTypes.FIREWORK,
+                            pos.getX() + 0.5,
+                            pos.getY() + ((1.2 + i) - 0.8),
+                            pos.getZ() + 0.5,
+                            0, 0.1, 0
+                    );
+                }
                 itemEntity.setStack(new ItemStack(Items.DIAMOND, itemEntity.getStack().getCount()));
             }
         }
