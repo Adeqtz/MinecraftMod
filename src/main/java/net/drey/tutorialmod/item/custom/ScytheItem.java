@@ -57,7 +57,6 @@ public class ScytheItem extends Item {
                     } else {
                         drop = new ItemStack(crop.asItem());
                     }
-
                     Block.dropStack(serverWorld, targetPos, drop);
                     serverWorld.setBlockState(targetPos, crop.withAge(0));
 

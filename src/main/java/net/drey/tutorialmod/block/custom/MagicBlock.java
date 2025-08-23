@@ -1,6 +1,7 @@
 package net.drey.tutorialmod.block.custom;
 
 import net.drey.tutorialmod.item.ModItems;
+import net.drey.tutorialmod.util.ModTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
@@ -39,7 +40,7 @@ public class MagicBlock  extends Block {
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         if(entity instanceof ItemEntity itemEntity) {
-            if(itemEntity.getStack().getItem() == ModItems.RAW_PINK_GARNET) {
+            if(isValidItem(itemEntity.getStack())) {
                 for (int i = 0; i < 10; i++) {
                     world.addParticle(
                             ParticleTypes.FIREWORK,
@@ -55,5 +56,9 @@ public class MagicBlock  extends Block {
 
 
         super.onSteppedOn(world, pos, state, entity);
+    }
+
+    private boolean isValidItem(ItemStack stack) {
+        return stack.isIn(ModTags.Items.TRANSFORMABLE_ITEMS);
     }
 }
