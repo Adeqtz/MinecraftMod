@@ -55,5 +55,7 @@ public class ScytheItem extends Item {
         }
 
         return ActionResult.SUCCESS;
+
+        // helps
     }
 }
